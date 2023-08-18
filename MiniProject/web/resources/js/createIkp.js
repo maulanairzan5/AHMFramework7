@@ -552,7 +552,7 @@ function submit_create_ikp(obj) {
                 data.ikp = {
                     ikpId: "",
                     katIzinKerja: $( "#kategori_izin_kerja_create_ikp",createIkp).val(),
-                    noPengajuanProyek: $("#nomor_pengajuan_lk3_create_ikp", createIkp).val(),
+                    noPengajuanProyek: $("#nomor_pengajuan_proyek_create_ikp", createIkp).val(),
                     katPekerjaan: $("#kategori_pekerjaan_create_ikp",createIkp).val(),
                     tipeOrder: $("#tipe_order_create_ikp", createIkp).val(),
                     purchasingOrg: $("#purchasing_organization_create_ikp",createIkp).val(),
