@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "ed0b34e4-c772-41f6-b742-5e8df4f93d0c",
+		"name": "IKP Mini Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24688286"
+	},
+	"item": [
+		{
+			"name": "get-ikp-table",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"supplierId\" : \"\",\r\n        \"nrpId\" : \"\",\r\n        \"tipeOrder\" : \"\",\r\n        \"noPoSpk\" : \"\",\r\n        \"startPeriode\" : \"\",\r\n        \"endPeriode\" : \"\",\r\n        \"ikpId\" : \"\",\r\n        \"status\" : [\"00-IKP\",\"01-IKP\"]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-ikp-table",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-ikp-table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-supplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 1,\r\n    \"search\" : {\r\n        \"supplyId\" : \"\",\r\n        \"supplyDesc\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-supplier",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-supplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-pic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"nrpId\" : \"\",\r\n        \"nama\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-pic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-pic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-po",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"noPo\" : \"\",\r\n        \"poDesc\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-po",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-po"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-plant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"plantVar\" : \"\",\r\n        \"plantDesc\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-plant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-plant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-asset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 1,\r\n    \"search\" : {\r\n        \"plantVar\" : \"P1\",\r\n        \"noAsset\" : \"\",\r\n        \"descAsset\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-asset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-task-list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"noAsset\" : \"P1.001\",\r\n        \"kode\" : \"\",\r\n        \"title\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-task-list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-task-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lov-ikp-id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"ikpId\" : \"\",\r\n        \"projectDetail\" : \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-lov-ikp-id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-lov-ikp-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-ikp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ikp\": {\r\n        \"ikpId\": \"\",\r\n        \"katPekerjaan\": \"Izin Kerja Proyek\",\r\n        \"katIzinKerja\": \"Nomor Izin 6\",\r\n        \"tipeOrder\": \"SPK\",\r\n        \"noPo\": \"\",\r\n        \"noSpk\": \"4000/SPK\",\r\n        \"deskripsiItem\": \"SPK\",\r\n        \"plantId\": \"P1\",\r\n        \"noPengajuanProyek\": \"\",\r\n        \"projectDetail\": \"Perbaikan Gedung\",\r\n        \"startJob\": \"01-01-2023\",\r\n        \"endJob\": \"31-12-2023\",\r\n        \"purchasingOrg\": \"1010\",\r\n        \"nrpId\": 18084,\r\n        \"supplyId\": \"1000001\",\r\n        \"supplyDesc\": \"PT Jakarta Indo\",\r\n        \"namaPengawas\": \"Irzan Maulana\",\r\n        \"hpPengawas\": \"123123123\",\r\n        \"namaLk3\": \"Louis\",\r\n        \"hpLk3\": \"321321321\",\r\n        \"status\": \"00-IKP\",\r\n        \"remark\": \"\"\r\n    },\r\n    \"listArea\" :\r\n        [\r\n            {\r\n                \"ikpId\":\"\",\r\n                \"areaDetail\":\"Detail Area 6\",\r\n                \"inOut\":\"Indoor\",\r\n                \"criticality\":\"1\",\r\n                \"taskList\":\"Tasklist P1.003 Nomor 001\",\r\n                \"loginPatrol\":\"18090\",\r\n                \"assetNo\":\"P1.003\"\r\n            }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/save-ikp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"save-ikp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-area-table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\" : 10,\r\n    \"offset\" : 0,\r\n    \"search\" : {\r\n        \"ikpId\" : \"IKP/P1/VIII/2023/00007\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/get-area-table",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"get-area-table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-area",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ikpId\": \"IKP/P1/VIII/2023/00008\",\r\n    \"areaDetail\": \"Detail Area 8\",\r\n    \"inOut\": \"Outdoor\",\r\n    \"criticality\": \"2\",\r\n    \"taskList\": \"Tasklist P1.002 Nomor 001\",\r\n    \"loginPatrol\": \"18090\",\r\n    \"assetNo\": \"P1.002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/save-area",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"save-area"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-area",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/delete-area?ikpId=IKP/P1/VIII/2023/00007&assetNo=P1.003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"delete-area"
+					],
+					"query": [
+						{
+							"key": "ikpId",
+							"value": "IKP/P1/VIII/2023/00007"
+						},
+						{
+							"key": "assetNo",
+							"value": "P1.003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-ikp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MiniProject/rest/ga/wpm001/delete-ikp?ikpId=IKP/P1/VIII/2023/00008",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MiniProject",
+						"rest",
+						"ga",
+						"wpm001",
+						"delete-ikp"
+					],
+					"query": [
+						{
+							"key": "ikpId",
+							"value": "IKP/P1/VIII/2023/00008"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

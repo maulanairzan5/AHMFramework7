@@ -1,0 +1,440 @@
+<!--Maintain IKP-->
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="../resources/js/bootstraps/bootstrap-table.min.js"></script>
+        <script type="text/javascript" src="../resources/js/common.js"></script>
+        <link rel="stylesheet" href="../resources/css/maintainIkp.css" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    </head>    
+    <body>
+        <div id="maintainIkp" class="div-app" data-version="1.0">
+            <!--Maintain IKP-->
+            <div id="halaman_maintain" class="subpage subpage-default" data-path="Maintain Izin Kerja Proyek">
+                <div class="row form-filter-panel" id="filter_panel">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="id_supplier_filter" class="col-sm-12 control-label">ID Supplier
+                                        </label>
+                                        <div class="lookup-wrapper col-lg-12">
+                                            <div class="input-group lookup" id="id_supplier_lookup_wrapper"
+                                                 data-url="/MiniProject/rest/ga/wpm001/get-lov-supplier"
+                                                 data-query-params-type="limit" data-lookup-pre-func="lov_supplier_filter"
+                                                 data-columns='[{"id":"supplyId","name":"ID Supplier","visible":"true","sortable":"true"},
+                                                 {"id":"supplyDesc","name":"Deskripsi Supplier","visible":"true","sortable":"true"}]'
+                                                 data-callback='{"id_supplier_filter":"supplyId","nama_supplier_filter":"supplyDesc"}'>
+                                                <input id="id_supplier_filter"
+                                                       class="form-control input-lookup gawpm001-uppercase"
+                                                       placeholder=" LoV ID Supplier" maxlength="100"/>
+                                                <span class="input-group-btn">
+                                                    <button id="lookup_id_supplier_filter"
+                                                            class="btn btn-default large-button btn-lookup" type="button"
+                                                            onclick="id_supplier_display_lookup()">
+                                                        <i class="glyphicon glyphicon-search fg-white"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="nama_supplier_filter" class="col-sm-12 control-label">Deskripsi
+                                            Supplier</label>
+                                        <input id="nama_supplier_filter" type="text" class="form-control"
+                                               placeholder="Input Nama Supplier" maxlength="50" autocomplete="off" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="id_pic_filter" class="col-sm-12 control-label">NRP PIC
+                                            Project</label>
+                                        <div class="lookup-wrapper col-lg-12">
+                                            <div class="input-group lookup" id="id_pic_lookup_wrapper"
+                                                 data-url="/MiniProject/rest/ga/wpm001/get-lov-pic"
+                                                 data-lookup-pre-func="lov_pic_filter" data-query-params-type="limit"
+                                                 data-columns='[{"id":"nrpId","name":"NRP PIC","visible":"true","sortable":"true"},
+                                                 {"id":"nama","name":"Nama PIC","visible":"true","sortable":"true"}]'
+                                                 data-callback='{"id_pic_filter":"nrpId","nama_pic_filter":"nama"}'>
+                                                <input id="id_pic_filter"
+                                                       class="form-control input-lookup gawpm001-uppercase" placeholder=" LoV NRP PIC"
+                                                       maxlength="100" />
+                                                <span class="input-group-btn">
+                                                    <button id="lookup_id_pic_filter"
+                                                            class="btn btn-default large-button btn-lookup" type="button"
+                                                            onclick="id_pic_display_lookup()">
+                                                        <i class="glyphicon glyphicon-search fg-white"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="nama_pic_filter" class="col-sm-12 control-label">Nama PIC
+                                            Project</label>
+                                        <input id="nama_pic_filter" type="text" class="form-control"
+                                               placeholder="Input Nama PIC Project" maxlength="50" autocomplete="off" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="ordering_type_filter" class="col-sm-12 control-label">Ordering
+                                            Type</label>
+                                        <select id="ordering_type_filter" class="form-control" required
+                                                onChange="check_po_filter(this)">
+                                            <option value="">-</option>
+                                            <option value="PO">Purchase Order</option>
+                                            <option value="SPK">SPK</option>
+                                            <option value="SPK Sementara">SPK Sementara</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="nomor_po_spk" class="col-sm-12 control-label">Nomor PO/SPK/SPK
+                                            Sementara</label>
+                                        <div class="lookup-wrapper col-lg-12">
+                                            <div class="input-group lookup" id="id_po_lookup_wrapper"
+                                                 data-url="/MiniProject/rest/ga/wpm001/get-lov-po"
+                                                 data-lookup-pre-func="lov_po_filter" data-query-params-type="limit"
+                                                 data-columns='[{"id":"noPo","name":"Nomor PO / SPK / SPK Sementara","visible":"true","sortable":"true"},
+                                                 {"id":"poDesc","name":"Deskripsi Item","visible":"true","sortable":"true"}]'
+                                                 data-callback='{"nomor_po_filter":"noPo"}'>
+                                                <input id="nomor_po_filter"
+                                                       class="form-control input-lookup gawpm001-uppercase"
+                                                       placeholder=" LoV Nomor PO / SPK / SPK Sementara" maxlength="100" 
+                                                       readonly="true"/>
+                                                <span class="input-group-btn">
+                                                    <button id="lookup_nomor_po_filter"
+                                                            class="btn btn-default large-button btn-lookup" type="button"
+                                                            disabled="disabled"
+                                                            onclick="id_po_display_lookup()">
+                                                        <i class="glyphicon glyphicon-search fg-white"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2">
+                                    <div class="form-group large-font">
+                                        <label class="col-lg-12 control-label">Periode (Start)</label>
+                                        <div class="input-group date">
+                                            <input id="start_periode_filter" type="text" class="warningInput" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group large-font">
+                                        <label class="col-lg-12 control-label">Periode (End)</label>
+                                        <div class="input-group date">
+                                            <input id="end_periode_filter" type="text" class="warningInput" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group large-font">
+                                        <label for="nomor_ikp" class="col-sm-12 control-label">Nomor IKP</label>
+                                        <div class="lookup-wrapper col-lg-12">
+                                            <div class="input-group lookup" id="id_ikp_lookup_wrapper"
+                                                 data-url="/MiniProject/rest/ga/wpm001/get-lov-ikp-id"
+                                                 data-lookup-pre-func="lov_ikp_filter" data-query-params-type="limit"
+                                                 data-columns='[{"id":"ikpId","name":"Nomor IKP","visible":"true","sortable":"true"},
+                                                 {"id":"projectDetail","name":"Project Detail","visible":"true","sortable":"true"}]'
+                                                 data-callback='{"nomor_ikp_filter":"ikpId"}'>
+                                                <input id="nomor_ikp_filter"
+                                                       class="form-control input-lookup gawpm001-uppercase"
+                                                       placeholder=" LoV Nomor IKP" maxlength="100" />
+                                                <span class="input-group-btn">
+                                                    <button id="lookup_nomor_ikp_filter"
+                                                            class="btn btn-default large-button btn-lookup" type="button"
+                                                            onclick="id_ikp_display_lookup()">
+                                                        <i class="glyphicon glyphicon-search fg-white"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group-button" style="margin-top: 12px">
+                        <button class="btn btn-primary large-button" id="search_maintain_ikp_button">
+                            <i class="glyphicon glyphicon-search fg-white"></i> Search
+                        </button>
+                        <button class="btn bg-grey large-button" id="refresh_maintain_ikp_button">
+                            <i class="glyphicon glyphicon-refresh fg-white"></i> Refresh
+                        </button>
+                        <button class="btn bg-blue large-button" id="export_maintain_ikp_button">
+                            <i class="glyphicon glyphicon-open-file fg-white"></i> Export to Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10px">
+                    <div id="button_add_submit" class="form-group-button">
+                        <!-- <button id="request_ikp_button" style="float: right; margin-right: 5px" 
+                                class="btn bg-orange large-button" onclick="requestIkp(this);"> 
+                            <i class="glyphicon glyphicon-plus fg-white"></i> Request IKP 
+                        </button>  -->
+
+                        <button id="create_ikp_button" style="float: right; margin-right: 5px" 
+                                class="btn bg-orange large-button" onclick="create_ikp_page(this);"> 
+                            <i class="glyphicon glyphicon-plus fg-white"></i> Create IKP 
+                        </button>
+                    </div>
+                </div>
+                <div id="table-container" class="table" id="table">
+                    <div class="bootstrap-table">
+                        <div class="fixed-table-toolbar"></div>
+                        <div class="fixed-table-container" style="padding-bottom: 0px">
+                            <div class="fixed-table-header" style="display: none">
+                                <table></table>
+                            </div>
+                            <div class="fixed-table-body">
+                                <div class="fixed-table-loading" style="top: 39px; display: none">
+                                    Loading, please wait...
+                                </div>
+                                <table id="search_maintain_ikp_table" data-method="post"
+                                       data-url="/MiniProject/rest/ga/wpm001/get-ikp-table"
+                                       data-content-type="application/json" data-data-type="json" data-query-params-type="limit"
+                                       data-query-params="maintain_ikp_filter" data-response-handler="load_data"
+                                       data-side-pagination="server" data-pagination="true" data-unique-id="ikpId"
+                                       data-multiple-select-row="true" data-click-to-select="true" class="table table-hover">
+                                    <thead>
+
+                                        <tr>
+                                            <th data-field="state" data-checkbox="true" data-formatter="stateCheckBoxFormatter">
+                                            </th>
+                                            <th data-sortable="false" data-visible="true" data-align="center"
+                                                data-formatter="index_formatter">
+                                                No.
+                                            </th>
+                                            <th data-field="ikpId" data-sortable="true">
+                                                <div class="th-inner">No IKP</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="idSupplier" data-sortable="true">
+                                                <div class="th-inner">Supplier ID</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="namaSupplier" data-sortable="true">
+                                                <div class="th-inner">Nama Supplier</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="tipeOrder" data-sortable="true">
+                                                <div class="th-inner">Tipe Order</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="nomorPoSpk" data-sortable="true">
+                                                <div class="th-inner">Nomor PO/SPK/SPK Sementara</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="plantId" data-sortable="true">
+                                                <div class="th-inner">Plant Pekerjaan</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="nomorPengajuanProyek" data-sortable="true">
+                                                <div class="th-inner">Nomor Pengajuan Proyek</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="loginPatrol" data-sortable="true">
+                                                <div class="th-inner">Login Patrol</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="nrpPic" data-sortable="true">
+                                                <div class="th-inner">
+                                                    NRP PIC <br />
+                                                    Project
+                                                </div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="namaPic" data-sortable="false">
+                                                <div class="th-inner">
+                                                    Nama PIC <br />
+                                                    Project
+                                                </div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="seksi" data-sortable="false">
+                                                <div class="th-inner">
+                                                    Seksi PIC <br />
+                                                    Project
+                                                </div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="departemen" data-sortable="false">
+                                                <div class="th-inner">
+                                                    Departemen PIC <br />
+                                                    Project
+                                                </div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="divisi" data-sortable="false">
+                                                <div class="th-inner">
+                                                    Divisi PIC <br />
+                                                    Project
+                                                </div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-field="status" data-sortable="true">
+                                                <div class="th-inner">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th data-sortable="false" data-visible="true" data-align="center"
+                                                data-formatter="maintain_ikp_action_button">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="fixed-table-footer" style="display: none">
+                                <table>
+                                    <tbody>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="fixed-table-pagination" style="display: none">
+                                <div class="pull-left pagination-detail">
+                                    <span class="pagination-info">Showing 1 to 0 of 0 rows</span>
+                                    <span class="page-list" style="display: none">
+                                        <span class="btn-group dropup">
+                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                <span class="page-size">10</span>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li role="menuitem" class="active">
+                                                </li>
+                                            </ul>
+                                        </span>
+                                        rows per page
+                                    </span>
+                                </div>
+                                <div class="pull-right pagination" style="display: none">
+                                    <ul class="pagination">
+                                        <li class="page-pre">
+                                        </li>
+                                        <li class="page-next">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="delete_ikp_modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" style="margin: 0 19px 0 0">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title center">
+                                    Confirm Delete Selected IKP Data?
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <button class="btn btn-danger" id="delete_ikp_confirm_button" data-dismiss="modal">
+                                    <i class="glyphicon glyphicon-ok fg-white"></i> Confirm
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal"
+                                        id="cancel_delete_ikp_confirm_button">
+                                    <i class="glyphicon glyphicon-remove fg-white"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="submit_ikp_modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" style="margin: 0 19px 0 0">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title center">
+                                    Confirm Submit IKP Data?
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <div class="center" id="submit_ikp_message"></div>
+                                <br>
+                                <button class="btn bg-green" id="submit_ikp_confirm_button" data-dismiss="modal">
+                                    <i class="glyphicon glyphicon-ok fg-white"></i> Confirm
+                                </button>
+                                <button class="btn btn-danger" data-dismiss="modal">
+                                    <i class="glyphicon glyphicon-remove fg-white"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifikasi Modal -->
+        <div id="notification_modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header center">
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title center" id="notification_modal_message"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="center" id="notification_modal_submessage"></div>
+                        <br>
+                        <div class="modal-footer center">
+                            <button class="btn btn-primary" o data-dismiss="modal">
+                                <i class="glyphicon glyphicon-ok fg-white"></i> OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="../resources/js/bootstraps/bootstrap-table.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../resources/js/lovtable.js"></script>
+        <script type="text/javascript" src="../resources/js/maintainIkp.js"></script>
+    </body>
+</html>
