@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/TaskListDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/PicDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/model/AreaPekerjaan.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/AssetDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/AreaPekerjaanDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/PlantConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/SupplierDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/AreaPekerjaanDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/PicConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/AssetConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/TaskListDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/PicDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/AreaPekerjaanConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/HeaderIkpConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/HeaderIkpDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/PurchasingOrderConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/PurchasingOrderImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/PlantDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/PurchasingOrderDao.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/PlantDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/HeaderIkpDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/SupplierDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/SupplierConstant.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/dao/impl/AssetDaoImpl.java</file>
+            <file>file:/D:/AHM/MiniProject/src/java/id/co/ahm/ga/wpm/constant/TaskListConstant.java</file>
+        </group>
+    </open-files>
+</project-private>
